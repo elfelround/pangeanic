@@ -20,5 +20,36 @@ sudo docker run --name hire-erick-db \
 **install angular
 npm install -g @angular/cli
 
--------------END OF ENV DEP------------
--------------
+-------------END OF ENV DEP-----------
+
+
+
+**initialize virtual enviroment
+$cd backend && pipenv --three
+$pipenv shell
+$pipenv install sqlalchemy psycopg2-binary
+$pipenv install flask marshmallow
+pipenv install flask-cors
+
+to run python -m src.main
+
+---AUTO RUNNING---
+$cd backend
+$pipenv shell
+$./bootstrap.sh &
+----
+
+run front-end
+$ng serve
+
+
+
+-----API DOCUMENTATION-----
+manual reason creation
+curl -X POST -H 'Content-Type: application/json' -d '{
+  "title": "Blah Blah",
+  "description": "Bleh Bleh"
+}' http://0.0.0.0:5000/things
+
+# retrieval
+curl http://0.0.0.0:5000/things
