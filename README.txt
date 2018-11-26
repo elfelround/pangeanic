@@ -1,3 +1,16 @@
+
+
+
+
+since all the passwords for the database etc are uploaded here, you should try to run this locally
+
+debido a que los pass de la bd estan a plena vista, deberias usar servidor local en principio solamente
+
+
+
+
+
+
 -----------ENVIROMENT DEPENDENCIES-----------
 install pipenv
 
@@ -33,17 +46,25 @@ pipenv install flask-cors
 
 to run python -m src.main
 
----AUTO RUNNING---
+---AUTO RUNNING REST BACKEND---
 $cd backend
 $pipenv shell
 $./bootstrap.sh &
 ----
-
-run front-end
+---FINALLY RUNNING FRONTEND---
 $ng serve
 
 
 
+*****FINAL LINK TO GO TO**********
+browse http://localhost:4200
+
+
+
+
+
+
+*****************************************
 -----API DOCUMENTATION-----
 manual reason creation
 curl -X POST -H 'Content-Type: application/json' -d '{

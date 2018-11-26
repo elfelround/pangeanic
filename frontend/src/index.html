@@ -3,12 +3,61 @@
 <head>
   <meta charset="utf-8">
   <title>Frontend</title>
+  <link href='https://fonts.googleapis.com/css?family=Anton|Hammersmith+One' rel='stylesheet' type='text/css'>
   <base href="/">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <style>
+  html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.info-polygon {
+  -webkit-clip-path: polygon(nonzero, 0 0, 100% 0, 100% 100%, 0 85%);
+  clip-path: polygon(nonzero, 0 0, 100% 0, 100% 100%, 0 85%);
+  height: 80%;
+}
+
+.info {
+  font-family: 'Hammersmith One', sans-serif;
+  font-size: 1.0em;
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  color: #fff;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+}
+.info .brand {
+  font-size: 6vmax;
+  text-transform: uppercase;
+}
+.info .slogan {
+  font-size: 2vmax;
+}
+  </style>
 </head>
 <body>
+    <div class="info-polygon" style="position:fixed">
+        <div class="info">
+          <div class="brand">Erick</div>
+          <div class="slogan">Code sample for Pangeanic</div>
+        </div>
+        <div class="background"></div>
+      </div>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/trianglify/0.2.1/trianglify.min.js'></script>
+
+        <script  type="text/javascript">
+        var pattern = Trianglify({
+    width: window.innerWidth,
+    height: window.innerHeight,
+    cell_size: 100 + Math.random() * 50,
+    variance: 1
+});
+document.querySelector('.info-polygon .background').appendChild(pattern.svg())
+        </script>
   <app-root></app-root>
 </body>
 </html>
