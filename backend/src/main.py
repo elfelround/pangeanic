@@ -1,28 +1,46 @@
 # coding=utf-8
 
-from .entities.entity import Session, engine, Base
-from .entities.thing import Thing
+from flask import Flask, jsonify, request
 
-# generate database schema
+from .entities.entity import Session, engine, Base
+from .entities.thing import Thing, ThingSchema
+
+# creating the Flask application
+app = Flask(__name__)
+
+# if needed, generate database schema
 Base.metadata.create_all(engine)
 
-# start session
-session = Session()
 
-# check for existing data
-things = session.query(Thing).all()
+@app.route('/things')
+def get_things():
+    # fetching from the database
+    session = Session()
+    thing_objects = session.query(Thing).all()
 
-if len(things) == 0:
-    # create and persist dummy exam
-    python_exam = Thing("SQLAlchemy Exam", "Test your knowledge about SQLAlchemy.", "script")
-    session.add(python_exam)
-    session.commit()
+    # transforming into JSON-serializable objects
+    schema = ThingSchema(many=True)
+    things = schema.dump(thing_objects)
+
+    # serializing as JSON
     session.close()
+    return jsonify(things.data)
 
-    # reload exams
-    things = session.query(Thing).all()
 
-# show existing exams
-print('### Things:')
-for thing in things:
-    print(f'({thing.id}) {thing.title} - {thing.description}')
+@app.route('/things', methods=['POST'])
+def add_thing():
+    # mount thing object
+    posted_thing = ThingSchema(only=('title', 'description'))\
+        .load(request.get_json())
+
+    thing = Thing(**posted_thing.data, created_by="HTTP post request")
+
+    # persist thing
+    session = Session()
+    session.add(thing)
+    session.commit()
+
+    # return created thing
+    new_thing = ThingSchema().dump(thing).data
+    session.close()
+    return jsonify(new_thing), 201
