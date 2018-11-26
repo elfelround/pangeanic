@@ -30,8 +30,9 @@ sudo docker run --name hire-erick-db \
     -d postgres
 
 **have Node.js (i.e. >= 8)
-**install angular
-npm install -g @angular/cli
+**INSTALL NODE PACKAGES ON FRONT
+cd frontend
+npm install
 
 -------------END OF ENV DEP-----------
 
@@ -74,3 +75,6 @@ curl -X POST -H 'Content-Type: application/json' -d '{
 
 # retrieval
 curl http://0.0.0.0:5000/things
+
+
+npm install --save rxjs-compat      in case 
