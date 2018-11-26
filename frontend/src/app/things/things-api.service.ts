@@ -16,7 +16,7 @@ export class ThingsApiService {
   }
 
   // GET list of public, future events
-  getThings(): Observable<Thing[]> {
+  getThings(): Observable<any> {
     return this.http
       .get(`${API_URL}/things`)
       .catch(ThingsApiService._handleError);
