@@ -1,7 +1,7 @@
 -----------ENVIROMENT DEPENDENCIES-----------
 install pipenv
 
-**install docker
+**install docker https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04
 sudo apt update
 sudo apt install apt-transport-https ca-certificates curl software-properties-common
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
