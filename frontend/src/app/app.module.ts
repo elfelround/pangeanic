@@ -4,10 +4,12 @@ import {HttpClientModule} from '@angular/common/http';
 
 import {AppComponent} from './app.component';
 import {ThingsApiService} from './things/things-api.service';
+import { CreationformComponent } from './creationform/creationform.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CreationformComponent
   ],
   imports: [
     BrowserModule,
