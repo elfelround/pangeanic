@@ -10,11 +10,12 @@ debido a que los pass de la bd estan a plena vista, deberias usar servidor local
 
 
 
-
+**first setup
 -----------ENVIROMENT DEPENDENCIES-----------
 install pipenv
 
 **install docker https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04
+
 sudo apt update
 sudo apt install apt-transport-https ca-certificates curl software-properties-common
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -36,16 +37,16 @@ npm install
 
 -------------END OF ENV DEP-----------
 
-
+---install python dependencies on a virtual enviroment on the backend dir--
 
 **initialize virtual enviroment
 $cd backend && pipenv --three
 $pipenv shell
-$pipenv install sqlalchemy psycopg2-binary
-$pipenv install flask marshmallow
-pipenv install flask-cors
+$pipenv install -r requirements.txt
 
-to run python -m src.main
+
+--to run manually the back end server instead of using $./bootstrap.sh &
+python -m src.main
 
 ---AUTO RUNNING REST BACKEND---
 $cd backend
@@ -61,6 +62,33 @@ $ng serve
 browse http://localhost:4200
 
 
+###running project again after having done it before
+----database stuff------
+
+sudo docker rm -f /hire-erick-db
+sudo docker run --name hire-erick-db \
+    -p 5432:5432 \
+    -e POSTGRES_DB=hire-erick \
+    -e POSTGRES_PASSWORD=HIR3-er1ck \
+    -d postgres
+
+---end of database stuff-----
+
+
+--running backend flask server----
+cd hire-erick/backend
+pipenv shell
+./bootstrap.sh &
+(if id collissions with previous server do a sudo kill on the 5000 port)
+
+--not necessary but, leave that console open and open a new console for the frontend server--
+
+--running frontend angular server----
+cd hire-erick/frontend
+ng serve
+
+make some api post to add data (documented down below on api documentation with curl command) to the db and travel to frontend port on browser
+http://localhost:4200/
 
 
 
@@ -75,6 +103,3 @@ curl -X POST -H 'Content-Type: application/json' -d '{
 
 # retrieval
 curl http://0.0.0.0:5000/things
-
-
-npm install --save rxjs-compat      in case 
