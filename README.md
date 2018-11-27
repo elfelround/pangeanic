@@ -6,7 +6,7 @@ since all the passwords for the database etc are uploaded here, you should try t
 
 debido a que los pass de la bd estan a plena vista, deberias usar servidor local en principio solamente
 
-
+![alt text](https://github.com/elfelround/pangeanic/blob/master/frontend/src/assets/Screenshot%20from%202018-11-27%2004-25-46.png)
 
 
 
