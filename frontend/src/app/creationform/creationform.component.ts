@@ -22,10 +22,10 @@ export class CreationformComponent implements OnInit {
   }
 
     // POST
-  saveEmployee(employeeForm: NgForm): Observable<any> {
-    console.log(employeeForm.value);
+  saveRazones(razonesForm: NgForm): Observable<any> {
+    console.log(razonesForm.value);
     return this.http
-      .post(`${API_URL}/things`, JSON.stringify(employeeForm.value), {
+      .post(`${API_URL}/things`, JSON.stringify(razonesForm.value), {
         headers: new HttpHeaders({
           'Content-Type': 'application/json'
         })
