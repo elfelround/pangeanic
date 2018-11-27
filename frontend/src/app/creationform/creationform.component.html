@@ -1,27 +1,15 @@
-<form #employeeForm="ngForm" (ngSubmit)="saveEmployee(employeeForm)">
-    <div class="panel panel-primary">
-      <div class="panel-heading">
-        <h3 class="panel-title">Create New reason</h3>
-      </div>
-      <div class="panel-body">
-  
-        <div class="form-group">
-          <label for="title">title</label>
-          <input id="title" type="text" class="form-control"
-                 name="title" [(ngModel)]="title">
-        </div>
-  
-        <div class="form-group">
-          <label for="description">description</label>
-          <input id="description" type="text" class="form-control"
-                 name="description" [(ngModel)]="description">
-        </div>
-  
-      </div>
-      <div class="panel-footer">
-        <button class="btn btn-primary" type="submit">Save</button>
-      </div>
+  <form class='login-form' #razonesForm="ngForm" (ngSubmit)="saveRazones(razonesForm)">
+    <div class="flex-row">
+      <label class="lf--label" for="title">
+      </label>
+      <input [(ngModel)]="title" name="title" id="title" class='lf--input' placeholder='Title' type='text'>
     </div>
+    <div class="flex-row">
+      <label class="lf--label" for="description">
+      </label>
+      <input [(ngModel)]="description" name="description" id="description" class='lf--input' placeholder='Description' type='text'>
+    </div>
+    <input class='lf--submit' type='submit' value='Create New reason'>
   </form>
 
-  {{employeeForm.value | json}}
+  {{razonesForm.value | json}}
