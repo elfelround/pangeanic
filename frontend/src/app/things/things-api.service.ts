@@ -1,9 +1,10 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpErrorResponse} from '@angular/common/http';
+import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
+import { NgForm } from '@angular/forms';
 import 'rxjs/add/operator/catch';
 import {API_URL} from '../env';
-import {Thing} from './thing.model';
+import { Thing } from './thing.model';
 
 @Injectable()
 export class ThingsApiService {
@@ -21,4 +22,5 @@ export class ThingsApiService {
       .get(`${API_URL}/things`)
       .catch(ThingsApiService._handleError);
   }
+
 }
