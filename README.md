@@ -63,7 +63,7 @@ browse http://localhost:4200
 
 
 ###running project again after having done it before
-----database stuff------
+----database stuff only do this if you restart between trials since this will recreate db------
 
 sudo docker rm -f /hire-erick-db
 sudo docker run --name hire-erick-db \
@@ -84,8 +84,7 @@ pipenv shell
 --not necessary but, leave that console open and open a new console for the frontend server--
 
 --running frontend angular server----
-cd hire-erick/frontend
-ng serve
+cd hire-erick/frontend && ng serve
 
 make some api post to add data (documented down below on api documentation with curl command) to the db and travel to frontend port on browser
 http://localhost:4200/
@@ -101,5 +100,10 @@ curl -X POST -H 'Content-Type: application/json' -d '{
   "description": "Bleh Bleh"
 }' http://0.0.0.0:5000/things
 
+
+//#interesting that ", Access-Control-Allow-Origin: *" CORS header on curl still works
 # retrieval
 curl http://0.0.0.0:5000/things
+
+
+Erick Lestrange   https://www.facebook.com/erick.mr.programs
