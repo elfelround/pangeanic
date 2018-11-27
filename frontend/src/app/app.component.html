@@ -1,11 +1,13 @@
+<div>
 <div style="text-align:center">
-  <h1>Razones para contratar a Erick</h1>
+  <h1 style="font-family: 'Hammersmith One', sans-serif; color: cadetblue;">Razones para contratar a Erick</h1>
 </div>
 <h2>Here are the reasons to hire erick created so far: </h2>
-<ul>
+<ul style="background:rgba(255, 0, 0, 0.1);">
   <li *ngFor="let thing of thingsList">
     {{thing.title}}
   </li>
 </ul>
+</div>
 <app-creationform></app-creationform>
 <p>para crear razones hacer una POST request a http://0.0.0.0:5000/things con un Json de "title" y "description"</p>
