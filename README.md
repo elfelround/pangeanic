@@ -106,4 +106,8 @@ curl -X POST -H 'Content-Type: application/json' -d '{
 curl http://0.0.0.0:5000/things
 
 
+todo: 
+frontend/src/app/creationform/creationform.component.ts
+https://github.com/elfelround/pangeanic/blob/423d6c8e7a9565c851318d09121cb7cf2164f460/frontend/src/app/creationform/creationform.component.ts?fbclid=IwAR1v55cWiTejwYeeMkJnNZ1-qGAUylCMclEJhYtSKGZGzxkkOvJndnvrwrc#L28
+
 Erick Lestrange   https://www.facebook.com/erick.mr.programs
