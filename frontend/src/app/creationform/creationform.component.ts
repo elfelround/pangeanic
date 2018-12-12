@@ -23,14 +23,14 @@ export class CreationformComponent implements OnInit {
 
     // POST
   saveRazones(razonesForm: NgForm): Observable<any> {
-    console.log(razonesForm.value);
-    return this.http
-      .post(`${API_URL}/things`, JSON.stringify(razonesForm.value), {
+    this.http
+      .post(`${API_URL}/things`, razonesForm.value, {
         headers: new HttpHeaders({
           'Content-Type': 'application/json'
         })
-      })
-      .catch(CreationformComponent._handleError);
+      }).subscribe(() => {
+        console.log('it looks like it is working just fine');
+      });
   }
 
 }
